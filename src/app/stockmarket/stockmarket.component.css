@@ -1,0 +1,16 @@
+.overview {
+    zoom: 110%; 
+    margin-left: -100px;
+}
+
+mat-slider {
+    background-color:rgb(190, 183, 183);
+    width: 550px;
+    height:10px;
+    border-radius:20px;
+  }
+.chart {
+   height: 400px;
+   width: 70%; 
+   margin-left: 200px;
+}

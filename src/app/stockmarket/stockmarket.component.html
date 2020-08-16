@@ -1,0 +1,202 @@
+<head>
+    <title>Stock market</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+
+<div class="container">
+
+    <br><br>
+    <button (click)="getNSEData()">NSE</button>
+    <button (click)="getBSEData()">BSE</button>
+    <h1>NIFTY50</h1>
+
+    <hr>
+    <div *ngIf="isNSE && !isBSE">
+        <div class="contanier">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>11,323.85</h1>
+                    <h4 style="color: green;"><span style='font-size:30px;'>&#8593;</span> 23.40 (0.21%)</h4>
+                    <p>As on 16 Aug, 2020 16:46 IST</p>
+                </div>
+                <div class="col-sm-6">
+
+                    <h4>Day Range</h4>
+                    <p style="text-align:left;">
+                        {{lastNSE.Low}}
+                        <span style="float:right;">
+                            {{ lastNSE.High }}
+                        </span>
+                    </p>
+                    <mat-slider thumbLabel [displayWith]="formatLabel1" tickInterval="1000" min={{lastNSE.Low}}
+                        max={{lastNSE.High}}></mat-slider>
+                    <p style="text-align:left;">L<span style="float:right;">H</span> </p>
+                    <br>
+                    <h4>52 week Range</h4>
+                    <p style="text-align:left;">
+                        {{minlow1}}
+                        <span style="float:right;">
+                            {{maxhigh1}}
+                        </span>
+                    </p>
+                    <mat-slider thumbLabel [displayWith]="formatLabel1" tickInterval="1000" min={{minlow1}}
+                        max={{maxhigh1}}></mat-slider>
+                    <p style="text-align:left;">L<span style="float:right;">H</span> </p>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="overview">
+            <hr>
+            <h3>OVERVIEW</h3>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6">
+                    <p style="text-align:left;">
+                        Open
+                        <span style="float:right;">
+                            <b>{{ lastNSE.Open }}</b>
+                        </span>
+                    </p>
+                    <hr style="border-top: dotted 1px;" />
+                    <p style="text-align:left;">
+                        Previous close
+                        <span style="float:right;">
+                            <b>{{ adjcloseNSE }}</b>
+                        </span>
+                    </p>
+                    <hr style="border-top: dotted 1px;" />
+                    <p style="text-align:left;">
+                        Day high
+                        <span style="float:right;">
+                            <b>{{ lastNSE.High }}</b>
+                        </span>
+                    </p>
+
+                </div>
+                <div class="col-sm-6">
+                    <p style="text-align:left;">
+                        Day low
+                        <span style="float:right;">
+                            <b>{{ lastNSE.Low }}</b>
+                        </span>
+                    </p>
+                    <hr style="border-top: dotted 1px;" />
+                    <p style="text-align:left;">
+                        52 Week High
+                        <span style="float:right;">
+                            <b>{{ maxhigh1 }}</b>
+                        </span>
+                    </p>
+                    <hr style="border-top: dotted 1px;" />
+                    <p style="text-align:left;">
+                        52 Week Low
+                        <span style="float:right;">
+                            <b>{{ minlow1 }}</b>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div *ngIf="isBSE && !isNSE">
+        <div class="contanier">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>11,323.85</h1>
+                    <h4 style="color:red;"><span style='font-size:30px;'>&#8595;</span> 23.40 (0.21%)</h4>
+                    <p>As on 16 Aug, 2020 16:46 IST</p>
+                </div>
+                <div class="col-sm-6">
+
+                    <h4>Day Range</h4>
+                    <p style="text-align:left;">
+                        {{lastBSE.Low}}
+                        <span style="float:right;">
+                            {{ lastBSE.High }}
+                        </span>
+                    </p>
+                    <mat-slider thumbLabel [displayWith]="formatLabel2" tickInterval="1000" min={{lastBSE.Low}}
+                        max={{lastBSE.High}}></mat-slider>
+                    <p style="text-align:left;">L<span style="float:right;">H</span> </p>
+                    <br>
+                    <h4>52 week Range</h4>
+                    <p style="text-align:left;">
+                        {{minlow2}}
+                        <span style="float:right;">
+                            {{maxhigh2}}
+                        </span>
+                    </p>
+                    <mat-slider thumbLabel [displayWith]="formatLabel2" tickInterval="1000" min={{minlow2}}
+                        max={{maxhigh2}}></mat-slider>
+                    <p style="text-align:left;">L<span style="float:right;">H</span> </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="overview">
+            <hr>
+            <h3>OVERVIEW</h3>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6">
+                    <p style="text-align:left;">
+                        Open
+                        <span style="float:right;">
+                            <b>{{ lastBSE.Open }}</b>
+                        </span>
+                    </p>
+                    <hr style="border-top: dotted 1px;" />
+                    <p style="text-align:left;">
+                        Previous close
+                        <span style="float:right;">
+                            <b>{{ adjcloseBSE }}</b>
+                        </span>
+                    </p>
+                    <hr style="border-top: dotted 1px;" />
+                    <p style="text-align:left;">
+                        Day high
+                        <span style="float:right;">
+                            <b>{{ lastBSE.High }}</b>
+                        </span>
+                    </p>
+
+                </div>
+                <div class="col-sm-6">
+                    <p style="text-align:left;">
+                        Day low
+                        <span style="float:right;">
+                            <b>{{ lastBSE.Low }}</b>
+                        </span>
+                    </p>
+                    <hr style="border-top: dotted 1px;" />
+                    <p style="text-align:left;">
+                        52 Week High
+                        <span style="float:right;">
+                            <b>{{ maxhigh2 }}</b>
+                        </span>
+                    </p>
+                    <hr style="border-top: dotted 1px;" />
+                    <p style="text-align:left;">
+                        52 Week Low
+                        <span style="float:right;">
+                            <b>{{ minlow2 }}</b>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<br><br><br><br><br><br>
+<div id="chartContainer" class="chart"></div>
+<br><br><br>

@@ -1,0 +1,66 @@
+<div class="bg">
+    <div class="container">
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card">
+                    <br>
+                    <h2 style="margin-left: 100px;">Welcome back !</h2>
+                    <div class="card-body py-md-4">
+                        <form #loginForm="ngForm">
+                            <div class="form-group" style="margin-left: 85px;">
+                                <input type="text" class="form-control" name="userName" placeholder="userName *"
+                                    value="" [(ngModel)]='userName' style="width:250px; height:40px;" required />
+                            </div>
+                            <div class="form-group" style="margin-left: 85px;">
+                                <input type="password" class="form-control" name="password" placeholder="password *"
+                                    value="" [(ngModel)]='password' style="width:250px; height:40px;" required />
+                            </div>
+                            <br>
+                            <button type="button" class="btn btn-primary" (click)="loginSubmit()"
+                                style="width: 100px; margin-left: 150px;">
+                                Login
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="empModel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" data-dismiss="modal">&times;</span>
+                <h4 class="modal-title">Update Form</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-group">
+                    <div class="container">
+                        <div class="row">
+                          <div class="col-sm-2">
+                            <h5>NSE</h5>
+                            <h4><b>NIFTY 50</b></h4>
+                            <h2><b>11,325.10</b></h2>
+                          </div>
+                          <div class="col-sm-2">
+                            <br/>
+                            <p>Prev Close</p>
+                            <p><b>11,300.10</b></p>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      <nav class="navbar navbar-dark bg-dark"> 
+                              <a class="navbar-brand" style="height:10px"> 
+                            </a> 
+                          </nav> 
+                         
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>

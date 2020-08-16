@@ -1,4 +1,4 @@
-# flipkr
+# Flipkr
 This project is a full stack web development task in Flipkr hackathon 5.0
 
 ### Tech Stack
